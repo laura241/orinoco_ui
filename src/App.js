@@ -7,7 +7,8 @@ import {
 } from "react-router-dom";
 import Products from "./scenes/Products";
 import ProductShow from "./scenes/ProductShow";
-import { PRODUCTS_ROUTE, PRODUCT_ROUTE} from "./routes";
+import ShoppingBasket from "./scenes/ShoppingBasket";
+import { PRODUCTS_ROUTE, PRODUCT_ROUTE, SHOPPING_BASKET_ROUTE} from "./routes";
 
 export default function App() {
   return (
@@ -34,10 +35,9 @@ export default function App() {
           <Route path={PRODUCT_ROUTE}>
             <ProductShow />
           </Route>
-
-          {/* <Route path={SHOPPING_BASKET_ROUTE}>
-            <ShoppingBasket />
-          </Route> */}
+          <Route path={SHOPPING_BASKET_ROUTE}>
+          <ShoppingBasket />
+          </Route>
           {/* Add other route and components juste like the Products */}
         </Switch>
       </div>

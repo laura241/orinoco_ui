@@ -4,6 +4,7 @@ import { API_URL, CAMERAS_URI } from '../../routes/api';
 import Product from '../../components/Product/component';
 
 
+
 function Products() {
 
     // On initialiser l'état du composant, autrement appelé "state"
@@ -35,8 +36,8 @@ function Products() {
                 // Maintenant qu'on accès à chacun des produit de manière indépendante, on peut "monter" le dump component Product (src/compoments)
                 // Le composant Product attends des props (properties). Il faut lui donner. 
                 <Product key={_id} id={_id} name={name} description={description} price={price} imageUrl={imageUrl} />)
-            }
-    </div>)
+                }
+            </div>)
 }
 
 // Il faut toujours exporter sa fonction ou classe pour la rendre accessible aux autres (c'est une sorte de déclaration, hey j'existe !)

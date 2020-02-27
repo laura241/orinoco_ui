@@ -4,11 +4,12 @@ import {string, number} from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getProductRoute } from '../../routes';
 
+
 function Product({id, name, price, description, imageUrl}) {
     return (
         <Link to={getProductRoute(id)}>
             {/* On utilise le router de react pour ajouter une balise <a> afin d'aller sur la page /produit/idProduit */}
-            {/*  On affiche bêtement les props qui ont été donné par le parent */}
+            {/*  On affiche bêtement les props qui ont été donnés par le parent */}
             <div className="card">
                 <p>Nom: {name}</p>
                 <p>Prix: {price}</p>
@@ -32,5 +33,7 @@ Product.defaultProps = {
     description: null,
     imageUrl: null,
 }
+
+
 
 export default Product;

@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { API_URL, CAMERAS_URI } from '../../routes/api';
 import Product from '../../components/Product/component';
+import AddToBasket from '../../components/AddToBasket';
 import {useParams} from 'react-router-dom';
+
 
 
 function ProductShow() {
@@ -38,7 +40,9 @@ function ProductShow() {
         {/* <Product name={product.name} descrition={product.descrption} /> */}
         {/*  On mount le fameux component Produit (src/components) */}
         <Product {...product} />
-    </div>)
+        <AddToBasket AddToBasket={new AddToBasket()} />
 }
+    </div>)}
+
 
 export default ProductShow;
