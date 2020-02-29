@@ -1,40 +1,40 @@
 import React from 'react';
-
+import Product from '../Product';
 
 
 class AddToBasket extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: ''};
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+      this.setState = {
+        basket: false
+      }
     }
-  
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
-  
-    handleSubmit(event) {
-      alert('La caméra a été ajoutée au panier' + this.state.value);
-      event.preventDefault();
-    }
-  
-    render() {
-      return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Ajouter au panier
-            <input type="checkbox" value={this.state.value} onChange={this.handleChange} />
-          </label>
-        </form>
 
-      );
+//Activation of local storage when basket checked
+    componentDidMount() {
+      const basket = localStorage.setItem(Product, Product);
+      this.setState = { basket:true };
     }
+    
+//Desactivation of local storage when basket unchecked
+    componentWillUnmount() {
+    if(<input onChange={this.setState = { basket: false }}/>)
+    localStorage.removeItem({Product, Product})
   }
 
 
-
-
+render() {
+  return (
+    <form>
+    <div>
+        <label>
+            Ajouter au panier:{' '}
+            <input type='checkbox' name='basket' classname='basket' onChange={event => this.setState = {basket: event.target.value }}/>
+        </label>
+      </div> 
+    </form>
+  );
+}
+}
 
 export default AddToBasket;

@@ -40,8 +40,8 @@ function ProductShow() {
         {/* <Product name={product.name} descrition={product.descrption} /> */}
         {/*  On mount le fameux component Produit (src/components) */}
         <Product {...product} />
-        <AddToBasket AddToBasket={new AddToBasket()} />
-}
+        <AddToBasket/>
+
     </div>)}
 
 
