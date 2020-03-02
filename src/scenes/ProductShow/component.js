@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { API_URL, CAMERAS_URI } from '../../routes/api';
 import Product from '../../components/Product/component';
-import AddToBasket from '../../components/AddToBasket';
 import {useParams} from 'react-router-dom';
+import AddToBasket from '../../components/AddToBasket/component';
 
 
 
@@ -30,6 +30,7 @@ function ProductShow() {
         })
     }, [])
 
+
     return (<div>
         <h1>
             Page produit
@@ -39,8 +40,9 @@ function ProductShow() {
         {/*  On aurai pu écrire ça pas joliment : exemple */}
         {/* <Product name={product.name} descrition={product.descrption} /> */}
         {/*  On mount le fameux component Produit (src/components) */}
+        <AddToBasket setItem = {id, product}/>
         <Product {...product} />
-        <AddToBasket/>
+        
 
     </div>)}
 

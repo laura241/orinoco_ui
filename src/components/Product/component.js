@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 import { getProductRoute } from '../../routes';
 
 
+
 function Product({id, name, price, description, imageUrl}) {
+ 
     return (
         <Link to={getProductRoute(id)}>
             {/* On utilise le router de react pour ajouter une balise <a> afin d'aller sur la page /produit/idProduit */}
@@ -15,9 +17,8 @@ function Product({id, name, price, description, imageUrl}) {
                 <p>Prix: {price}</p>
                 <p>Description: {description}</p>
                 <img alt="product_image" src={imageUrl} width="25%"/>
-            </div>
-        </Link> 
-    )
+                </div>
+        </Link>)
 }
 
 Product.propTypes = {
