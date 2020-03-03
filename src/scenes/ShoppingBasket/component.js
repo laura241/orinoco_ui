@@ -4,8 +4,10 @@ import { API_URL, CAMERAS_URI } from '../../routes/api';
 import Product from '../../components/Product/component';
 import {useParams} from 'react-router-dom';
 import Form from '../../components/Form/component';
+import AddToBasket from '../../components/AddToBasket/component'
 
-function ShoppingBasket(){
+function ShoppingBasket() {
+ 
 
 
 
@@ -14,7 +16,11 @@ return (<div>
     <h1>
         Panier de commande
     </h1>
+    
     <Form/>
-        </div>)
+    </div>)
+    
 }
+
+
 export default ShoppingBasket;

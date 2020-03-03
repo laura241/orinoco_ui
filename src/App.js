@@ -22,7 +22,9 @@ export default function App() {
             <li>
               <Link to={PRODUCTS_ROUTE}>Liste des produits</Link>
             </li>
-            {/* Add link to the other page */}
+            <li>
+              <Link to={SHOPPING_BASKET_ROUTE}>Panier de commande</Link>
+            </li>
           </ul>
         </nav>
 
