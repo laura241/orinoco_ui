@@ -1,12 +1,14 @@
 import React from 'react';
-
+import Product from '../Product/component';
  
+
 
 
 class AddToBasket extends React.Component {
   constructor(props) {
   super(props);
 }
+
   traiterClick = () => {
     localStorage.setItem(this.props, this.props);
   }       

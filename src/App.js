@@ -8,7 +8,8 @@ import {
 import Products from "./scenes/Products";
 import ProductShow from "./scenes/ProductShow";
 import ShoppingBasket from "./scenes/ShoppingBasket";
-import { PRODUCTS_ROUTE, PRODUCT_ROUTE, SHOPPING_BASKET_ROUTE} from "./routes";
+import ConfirmCommand from "./scenes/ConfirmCommand";
+import { PRODUCTS_ROUTE, PRODUCT_ROUTE, SHOPPING_BASKET_ROUTE, CONFIRM_COMMAND_ROUTE} from "./routes";
 
 export default function App() {
   return (
@@ -39,6 +40,9 @@ export default function App() {
           </Route>
           <Route path={SHOPPING_BASKET_ROUTE}>
           <ShoppingBasket />
+          </Route>
+          <Route path={CONFIRM_COMMAND_ROUTE}>
+          <ConfirmCommand/>
           </Route>
           {/* Add other route and components juste like the Products */}
         </Switch>
