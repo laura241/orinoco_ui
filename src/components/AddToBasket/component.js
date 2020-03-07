@@ -1,25 +1,35 @@
 import React from 'react';
-import Product from '../Product/component';
- 
+ import {useParams} from 'react-router-dom';
+
+function AddToBasket() {
+const id = useParams().id;
+
+  function handleClick(AddToBasket,e) {
+    if (localStorage.getItem('cart') != null){
+      var storage  = localStorage.getItem('cart');
+      var JSONToArray =  JSON.parse(storage);
+      JSONToArray.push([id, 1]);
+      localStorage.setItem('cart',JSON.stringify(JSONToArray));
+      }
+
+      /*JSONToArray.push(id);
+      localStorage.setItem('cart', JSON.stringify(JSONToArray));*/
+    else { 
+      var array = [];
+      array.push([id,1]);
+      var arrayToJSON = JSON.stringify(array);
+      localStorage.setItem('cart',arrayToJSON);
+    }
+  }
 
 
-
-class AddToBasket extends React.Component {
-  constructor(props) {
-  super(props);
-}
-
-  traiterClick = () => {
-    localStorage.setItem(this.props, this.props);
-  }       
-
-
-render() {
   return (
-      <button onClick={this.traiterClick.bind(this)}>Ajout au panier</button>
-      )
-
+    <button onClick={handleClick}>Ajout au panier</button>
+  )
+}
+AddToBasket.propTypes = {
 }
 
-}   
+AddToBasket.defaultProps= {
+}
 export default AddToBasket;

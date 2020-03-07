@@ -17,7 +17,7 @@ function Product({id, name, price, description, imageUrl}) {
                 <p>Prix: {price}</p>
                 <p>Description: {description}</p>
                 <img alt="product_image" src={imageUrl} width="25%"/>
-                </div>
+            </div>
         </Link>)
 }
 
