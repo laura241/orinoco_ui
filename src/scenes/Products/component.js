@@ -5,6 +5,7 @@ import Product from '../../components/Product/component';
 
 
 
+
 function Products() {
 
     // On initialiser l'état du composant, autrement appelé "state"
@@ -37,6 +38,7 @@ function Products() {
                 // Le composant Product attends des props (properties). Il faut lui donner. 
                 <Product key={_id} id={_id} name={name} description={description} price={price} imageUrl={imageUrl} />)
                 }
+                
             </div>)
 }
 

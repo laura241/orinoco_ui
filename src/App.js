@@ -9,7 +9,7 @@ import Products from "./scenes/Products";
 import ProductShow from "./scenes/ProductShow";
 import ShoppingBasket from "./scenes/ShoppingBasket";
 import ConfirmCommand from "./scenes/ConfirmCommand";
-import { PRODUCTS_ROUTE, PRODUCT_ROUTE, SHOPPING_BASKET_ROUTE, CONFIRM_COMMAND_ROUTE} from "./routes";
+import { PRODUCTS_ROUTE, PRODUCT_ROUTE, ORDER_ROUTE, CONFIRM_COMMAND_ROUTE} from "./routes";
 
 export default function App() {
   return (
@@ -24,7 +24,7 @@ export default function App() {
               <Link to={PRODUCTS_ROUTE}>Liste des produits</Link>
             </li>
             <li>
-              <Link to={SHOPPING_BASKET_ROUTE}>Panier de commande</Link>
+              <Link to={ORDER_ROUTE}>Panier de commande</Link>
             </li>
           </ul>
         </nav>
@@ -38,7 +38,7 @@ export default function App() {
           <Route path={PRODUCT_ROUTE}>
             <ProductShow />
           </Route>
-          <Route path={SHOPPING_BASKET_ROUTE}>
+          <Route path={ORDER_ROUTE}>
           <ShoppingBasket />
           </Route>
           <Route path={CONFIRM_COMMAND_ROUTE}>
