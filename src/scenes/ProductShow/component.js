@@ -40,7 +40,7 @@ function ProductShow() {
         {/*  On aurai pu écrire ça pas joliment : exemple */}
         {/* <Product name={product.name} descrition={product.descrption} /> */}
         {/*  On mount le fameux component Produit (src/components) */}
-        <AddToBasket {...product}/>
+        <AddToBasket/>
         <Product {...product} />
         
 

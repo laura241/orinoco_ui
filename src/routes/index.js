@@ -6,3 +6,7 @@ export const CONFIRM_COMMAND_ROUTE ='/confirm/command';
 export const PRODUCT_RESOURCE = 'product';
 
 export const getProductRoute = (id) => `${PRODUCT_RESOURCE}/${id}`;
+
+export const orderCameras = (order) => `${ORDER_ROUTE}/${order}`;
+
+

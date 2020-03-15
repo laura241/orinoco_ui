@@ -1,42 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../../components/Product/component';
 import axios from 'axios';
-import { API_URL, CAMERAS_URI} from '../../routes/api';
+import { API_URL, CAMERAS_URI,} from '../../routes/api';
 import {useParams} from 'react-router-dom';
 import Form from '../../components/Form/component';
-import AddToBasket from '../../components/AddToBasket/component';
+import AddToBasket from '../../components/AddToBasket/component.js';
 
 
 
 function ShoppingBasket() {
-    var value = []
-    var value = JSON.parse(localStorage.getItem(''));
-    var [value, setValue] = useState([])
-    
-    useEffect(() => {
-        axios.get(`${API_URL}${CAMERAS_URI}`) 
-        .then(({data}) => {
-            setValue(data);
-            console.log(data);
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-    }, [])
-    
+    const [shoppingBasket, setShoppingBasket] = useState([]); 
 
-    return  (<body>
+    if (localStorage.getItem('cartProduct') != null){
+        var localProduct = JSON.parse(localStorage.getItem('cartProduct'));
+        var localQty = JSON.parse(localStorage.getItem('cartQty'));
+         console.log(localProduct);   
+    }
+
+//    Si le local storage contient des données
+
+//Afficher les données : 
+//relier chaque id à sa camera
+
+return  (<body>
     <h1>
         Votre commande
     </h1>
-    {value.map(({_id, name, description, price, imageUrl}) => 
-            <Product key={_id} id={_id} name={name} description={description} price={price} imageUrl={imageUrl} />)
-                }
+  
     <Form/>
     </body>)
     }
 
-    export default ShoppingBasket;
+//sinon afficher le Message
+
+   //Cliquez pour découvrir notre sélection de cameras
+
+
+
+
+   
+
+export default ShoppingBasket;
 
 
 
