@@ -2,20 +2,30 @@ import React, { useEffect, useState } from 'react';
 import Product from '../../components/Product/component';
 import axios from 'axios';
 import { API_URL, CAMERAS_URI,} from '../../routes/api';
-import {useParams} from 'react-router-dom';
 import Form from '../../components/Form/component';
-import AddToBasket from '../../components/AddToBasket/component.js';
 
 
 
 function ShoppingBasket() {
-    const [shoppingBasket, setShoppingBasket] = useState([]); 
+    // const [shoppingBasket, setShoppingBasket] = useState([]); 
 
-    if (localStorage.getItem('cartProduct') != null){
-        var localProduct = JSON.parse(localStorage.getItem('cartProduct'));
-        var localQty = JSON.parse(localStorage.getItem('cartQty'));
-         console.log(localProduct);   
-    }
+    //     var localProduct = JSON.parse(localStorage.getItem('cartProduct'));
+    //     var localQty = JSON.parse(localStorage.getItem('cartQty'));
+    //     console.log(localProduct);
+    //     const id = localProduct;
+    //     console.log(id);
+        
+    //     useEffect(() => {
+    //         axios.get(`${API_URL}${CAMERAS_URI}/${id}`) 
+    //         .then(({data}) => {
+    //             setShoppingBasket(data);
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         })
+    //     }, [])
+    
+       
 
 //    Si le local storage contient des données
 
@@ -27,9 +37,10 @@ return  (<body>
         Votre commande
     </h1>
   
-    <Form/>
+    {/* <Form/> */}
     </body>)
     }
+
 
 //sinon afficher le Message
 

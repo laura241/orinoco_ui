@@ -3,7 +3,7 @@ import axios from 'axios';
 import { API_URL, CAMERAS_URI } from '../../routes/api';
 import Product from '../../components/Product/component';
 import {useParams} from 'react-router-dom';
-import AddToBasket from '../../components/AddToBasket/component';
+import AddToBasket from '../../components/AddToBasket';
 
 
 
@@ -40,7 +40,7 @@ function ProductShow() {
         {/*  On aurai pu écrire ça pas joliment : exemple */}
         {/* <Product name={product.name} descrition={product.descrption} /> */}
         {/*  On mount le fameux component Produit (src/components) */}
-        <AddToBasket/>
+        <AddToBasket id={id}/>
         <Product {...product} />
         
 
