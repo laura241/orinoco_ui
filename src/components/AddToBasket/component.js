@@ -8,14 +8,18 @@ function AddToBasket({id}) {
       const products = JSON.parse(localStorage.getItem('products'));
       console.log(products);
       if(products !== null && products.length > 0) {
-          const productsUpdated = products.map((p) => {
+       products.map((p) => {
               if(p.id === id) {
-                  console.log('passe');
+                  console.log(id);
                   p.quantity = p.quantity + 1
               }
+              else {
+                  products.push([{id: id, quantity: 1}]);
+              }
           });
-          console.log(productsUpdated);
-          localStorage.setItem('products', JSON.stringify(productsUpdated));
+          localStorage.setItem('products', JSON.stringify(products));
+
+    
       } else {
           localStorage.setItem('products', JSON.stringify([{id: id, quantity: 1}]))
       }

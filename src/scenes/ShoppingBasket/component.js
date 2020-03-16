@@ -3,43 +3,47 @@ import Product from '../../components/Product/component';
 import axios from 'axios';
 import { API_URL, CAMERAS_URI,} from '../../routes/api';
 import Form from '../../components/Form/component';
+import {useParams} from 'react-router-dom';
 
 
 
 function ShoppingBasket() {
-    // const [shoppingBasket, setShoppingBasket] = useState([]); 
 
-    //     var localProduct = JSON.parse(localStorage.getItem('cartProduct'));
-    //     var localQty = JSON.parse(localStorage.getItem('cartQty'));
-    //     console.log(localProduct);
-    //     const id = localProduct;
-    //     console.log(id);
-        
-    //     useEffect(() => {
-    //         axios.get(`${API_URL}${CAMERAS_URI}/${id}`) 
-    //         .then(({data}) => {
-    //             setShoppingBasket(data);
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         })
-    //     }, [])
+
+    // On utilise le hook du router react afin de récuper l'id du produit passé dans l'url
+    const id = useParams().id;
     
-       
+    // On initialiser l'état du composant, autrement appelé "state"
+    var [shopping, setShopping] = useState();
 
-//    Si le local storage contient des données
+        setShopping = JSON.parse(localStorage.getItem('products'))
 
-//Afficher les données : 
-//relier chaque id à sa camera
+        console.log(setShopping);
+
+        useEffect(() => {
+        axios.get(`${API_URL}${CAMERAS_URI}/${id}`) // concatenation pour faire la route
+        .then(({data}) => {
+        setShopping(data); // set dans le state déclaré plus haut le produit récupéré
+        })
+        .catch((error) => {
+        console.log(error);
+        })
+        }, [])
+    
+    // const handleClick = () => {
+    //     console.log("wouhou j'ai fais un clique");
+    // }
+    
+    // On appelle l'API backend (express) afin de récupérer les informations du produit en question (via son ID)
+   
 
 return  (<body>
     <h1>
         Votre commande
     </h1>
-  
-    {/* <Form/> */}
-    </body>)
-    }
+    <Product/>
+    <Form/>
+    </body>)}
 
 
 //sinon afficher le Message
