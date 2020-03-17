@@ -9,7 +9,7 @@ import Products from "./scenes/Products";
 import ProductShow from "./scenes/ProductShow";
 import ShoppingBasket from "./scenes/ShoppingBasket";
 import ConfirmCommand from "./scenes/ConfirmCommand";
-import { PRODUCTS_ROUTE, PRODUCT_ROUTE, ORDER_ROUTE, CONFIRM_COMMAND_ROUTE} from "./routes";
+import { PRODUCTS_ROUTE, PRODUCT_ROUTE, ORDER_ROUTE, SHOPPING_CART} from "./routes";
 
 export default function App() {
   return (
@@ -24,7 +24,7 @@ export default function App() {
               <Link to={PRODUCTS_ROUTE}>Liste des produits</Link>
             </li>
             <li>
-              <Link to={ORDER_ROUTE}>Panier de commande</Link>
+              <Link to={SHOPPING_CART}>Panier de commande</Link>
             </li>
           </ul>
         </nav>
@@ -38,10 +38,10 @@ export default function App() {
           <Route path={PRODUCT_ROUTE}>
             <ProductShow />
           </Route>
-          <Route path={ORDER_ROUTE}>
+          <Route path={SHOPPING_CART}>
           <ShoppingBasket />
           </Route>
-          <Route path={CONFIRM_COMMAND_ROUTE}>
+          <Route path={ORDER_ROUTE}>
           <ConfirmCommand/>
           </Route>
           {/* Add other route and components juste like the Products */}
