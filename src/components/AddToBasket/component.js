@@ -1,5 +1,6 @@
 import React from 'react';
 import {remove} from 'lodash';
+import './styles.css';
 
 function AddToBasket({id}) {
 
@@ -39,7 +40,7 @@ function AddToBasket({id}) {
     //   }
   }
 
-  return (<button onClick={handleClick}>Ajout au panier</button>)
+  return (<button className ="button" onClick={handleClick}>Ajout au panier</button>)
 }
 
 export default AddToBasket;

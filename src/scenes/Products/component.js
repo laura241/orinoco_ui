@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { API_URL, CAMERAS_URI } from '../../routes/api';
 import Product from '../../components/Product/component';
+import AddToBasket from '../../components/AddToBasket/component';
+import {useParams} from 'react-router-dom';
 
 
 
 
 function Products() {
 
+    const id = useParams().id;
     // On initialiser l'état du composant, autrement appelé "state"
     const [products, setProducts] = useState([]);
 
