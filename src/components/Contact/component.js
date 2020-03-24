@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { API_URL, ORDER_URI } from '../../routes/api';
+import React, { useEffect, useState} from 'react';
+import { useHistory } from "react-router-dom";
+import { API_URL, ORDER_URI, ORDER_ROUTE } from '../../routes/api';
 import axios from 'axios';
 import './styles.css';
+import Counter from '../Counter/component';
 
 
 
 function Contact ({contact}) {
 
-  const [form, setForm] = useState('');
   const [lastName, setLastName] = useState('');
   const [firstName, setFirstName] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [email, setEmail] = useState('');
+
+  let history = useHistory();
+
 
   function validateEmail(email) {
     const emailReg =  RegExp(/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/i);
@@ -44,36 +48,24 @@ function Contact ({contact}) {
       data: {contact, products: productsIds},
     })
     .then(function (reponse) {
-      //On traite la suite une fois la réponse obtenue 
+      history.push('/order')
       console.log(reponse);
+      return(
+        <Counter/>
+      )
     })
     .catch(function (erreur) {
-      //On traite ici les erreurs éventuellement survenues
       console.log(erreur);
     });
 
-    // Il faut itérer à travers products
-    // Il faut constuire un array d'id de produit, qui ressemblera a :
-    // ["1234567", "456789098765"]
-
-
-
-    // Expects request to contain:
-    // * contact: {
-    // *   firstName: string,
-    // *   lastname: string,
-    // *   address: string,
-    // *   city: string,
-    // *   email: string
-    // * }
-    // * products: [string] <-- array of product _id
-
+  
 
     
   } 
 
 
   return (
+    
   
     <div className='form'>
 
@@ -106,7 +98,6 @@ function Contact ({contact}) {
         <div className='submit' type='submit'>
         <button onClick={handleSubmit}>Envoyer</button>
         </div>
-
     </div>
   );
 }

@@ -10,32 +10,44 @@ function ShoppingBasket() {
 
     //On initialise l'état du composant
     const [shopping, setShopping] = useState([]);
+    const [totalAmount, setTotalAmount] = useState(null);
     //On définit la constante products qui va contenir les données du local storage
     const products = JSON.parse(localStorage.getItem('products'));
-    //On définit une constante qui contiendra le prix total de la commande
     
     useEffect(() => {
-        //Si le local storage n'est pas vide, définition d'un nouvel array qui obtient les données du serveur correspondant à l'itération des données du local storage
         if(products != null){
             const productsPromises = [];
-            products.map(({id}) => productsPromises.push(axios.get(`${API_URL}${CAMERAS_URI}/${id}`)));
+            console.log(products);
+            products.map(({id}) => (
+                productsPromises.push(axios.get(`${API_URL}${CAMERAS_URI}/${id}`)
+            )));
 
-            // multiplication du nombre d'article par le prix
-            // stockage du prix dans la variable
+            Promise.all(productsPromises)
+            .then((productsAPI) => {
+                const shoppingProducts = productsAPI.map(({data}) => {
+                    const product = products.find((element) => element.id === data._id);
+                    const productQuantity = product.quantity;
+                    const productPrice = data.price;
 
-            //Si toutes les promesses sont bien résolues,on récupère l'ensemble des données renvoyées par le serveur ainsi que les données du local storage
-            // on met à jour l'état du composant, et on récupère les données de chaque ID de products pour les faire correspondre aveec celles de productsPromises
-            Promise.all(productsPromises).then((products) => setShopping(products.map(({data}) => ({
-                    id: data._id,
-                    name: data.name,
-                    price: data.price,
-                    description: data.description,
-                    imageUrl: data.imageUrl
-            }))));
+                    return {
+                        id: data._id, 
+                        name: data.name,
+                        quantity: productQuantity,
+                        total: productQuantity * productPrice,
+                        price: productPrice,
+                        description: data.description,
+                        imageUrl: data.imageUrl
+                    }
+                    
+                });
+
+                const total = shoppingProducts.reduce((acc, value) => acc + value.total, 0);
+                setShopping(shoppingProducts);
+                setTotalAmount(total);
+            });
         } 
     }, []);
-
-
+    
     return (
         <>
         {products &&
@@ -44,14 +56,13 @@ function ShoppingBasket() {
                 {shopping.map(({_id, name, description, price, imageUrl}) =>
                     <Product key={_id} name={name} description={description} price={price} imageUrl={imageUrl} />)
                 }
+                <p>Prix total : {totalAmount} €</p>
                 <Contact/>
             </div>
         }
         </>
-    )
-            
+    )      
 }
-
 
 export default ShoppingBasket;
 

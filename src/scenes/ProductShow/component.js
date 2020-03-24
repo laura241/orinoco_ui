@@ -4,6 +4,9 @@ import { API_URL, CAMERAS_URI } from '../../routes/api';
 import Product from '../../components/Product/component';
 import {useParams} from 'react-router-dom';
 import AddToBasket from '../../components/AddToBasket';
+import List from '../../components/List';
+
+
 
 
 
@@ -30,6 +33,7 @@ function ProductShow() {
         })
     }, [])
 
+    
 
     return (<div>
         <h1>
@@ -41,6 +45,7 @@ function ProductShow() {
         {/* <Product name={product.name} descrition={product.descrption} /> */}
         {/*  On mount le fameux component Produit (src/components) */}
         <AddToBasket id={id}/>
+        <List/>
         <Product {...product} />
         
 

@@ -6,6 +6,7 @@ function AddToBasket({id}) {
 
   function handleClick() {
     const products = JSON.parse(localStorage.getItem('products')) || [];
+   
     
       if(products.length > 0) {
           const product = products.find(p => p.id === id);
@@ -42,5 +43,8 @@ function AddToBasket({id}) {
 
   return (<button className ="button" onClick={handleClick}>Ajout au panier</button>)
 }
+
+
+
 
 export default AddToBasket;
