@@ -6,6 +6,7 @@ import { getProductRoute } from '../../routes';
 
 
 
+
 function Product({id, name, price, description, imageUrl}) {
  
     return (
@@ -26,7 +27,8 @@ Product.propTypes = {
     name: string.isRequired,
     price: number,
     description: string,
-    imageUrl: string
+    imageUrl: string,
+    lenses: [string]
 }
 
 Product.defaultProps = {

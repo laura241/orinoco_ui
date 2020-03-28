@@ -1,19 +1,19 @@
-import React from 'react';
-import Counter from '../../components/Counter/component';
-
-
+import React, { useEffect, useState } from 'react';
+import { API_URL, ORDER_URI } from '../../routes/api';
+import axios from 'axios';
 
 
 function ConfirmCommand({}) {
 
+
+
+ 
   
-    
     return (
       <div>
-      <h1>Confirmation de commande</h1>
-      <p>Votre numéro de commande est le/><Counter/></p>
+        <p>Votre numéro de commande est le {}</p>
       </div>
-    )
- }
+    );
+}
 
  export default ConfirmCommand;
