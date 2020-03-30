@@ -18,7 +18,6 @@ function ShoppingBasket() {
     useEffect(() => {
         if(products != null){
             const productsPromises = [];
-            console.log(products);
             products.map(({id}) => (
                 productsPromises.push(axios.get(`${API_URL}${CAMERAS_URI}/${id}`)
             )));

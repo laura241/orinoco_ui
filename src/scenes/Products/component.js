@@ -25,7 +25,6 @@ function Products() {
         })
         .catch((error) => {
             // Si le serveur renvoit une error, on console.log l'erreur. Cela sert a rien, il est préférable de dire à l'utilisateur qu'il y a un petit probleme (UX).
-            console.log(error);
         })
     }, [])
 

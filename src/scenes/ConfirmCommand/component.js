@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { API_URL, ORDER_URI } from '../../routes/api';
-import axios from 'axios';
+import React from 'react';
+import {useParams} from 'react-router-dom';
 
 
-function ConfirmCommand({}) {
+function ConfirmCommand() {
 
 
+  const orderId = useParams().orderId;
 
- 
-  
     return (
       <div>
-        <p>Votre numéro de commande est le {}</p>
+        <p>Votre commande a bien été validée, nous vous remercions de votre achat.</p>
+        <p></p>
+        <p>Votre numéro de commande : {orderId}</p>
+        
       </div>
     );
 }
 
- export default ConfirmCommand;
+export default ConfirmCommand;
