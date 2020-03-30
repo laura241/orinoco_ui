@@ -5,10 +5,7 @@ import Product from '../../components/Product/component';
 import {useParams} from 'react-router-dom';
 import AddToBasket from '../../components/AddToBasket';
 import List from '../../components/List';
-
-
-
-
+import {get} from 'lodash';
 
 function ProductShow() {
 
@@ -29,7 +26,6 @@ function ProductShow() {
             setProduct(data); // set dans le state déclaré plus haut le produit récupéré
         })
         .catch((error) => {
-            console.log(error);
         })
     }, [])
 
@@ -45,7 +41,7 @@ function ProductShow() {
         {/* <Product name={product.name} descrition={product.descrption} /> */}
         {/*  On mount le fameux component Produit (src/components) */}
         <AddToBasket id={id}/>
-        <List/>
+        <List lenses={get(product, 'lenses', [])} />
         <Product {...product} />
         
 

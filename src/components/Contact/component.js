@@ -1,18 +1,15 @@
 import React, { useEffect, useState} from 'react';
 import { useHistory } from "react-router-dom";
-import { Redirect } from "react-router-dom";
-import { API_URL, ORDER_URI, ORDER_ROUTE } from '../../routes/api';
+import {useParams} from 'react-router-dom';
+import { API_URL, ORDER_URI } from '../../routes/api';
+import {getOrderIdRoute, getOrderRoute} from '../../routes/index';
 import axios from 'axios';
 import './styles.css';
-
-
-
 
 function Contact () {
 
   const history = useHistory();
 
-  const [confirmOrder, setConfirmOrder] = useState('');
   const [form, setForm] = useState({
     firstName: null,
     lastName: null,
@@ -34,7 +31,7 @@ function Contact () {
 
     const isEmailValid = validateEmail(form.email); //true/false
     const formValuesDefined = validateRequiredFields([form.firstName, form.lastName, form.city, form.address]).filter(Boolean);
-    console.log(formValuesDefined, isEmailValid)
+
     
     if(formValuesDefined.length === Object.keys(form).length - 1 && isEmailValid){
       const storageProducts = JSON.parse(localStorage.getItem('products'));
@@ -42,19 +39,16 @@ function Contact () {
       const contact = form;
       
       axios({
-       
         method: 'post',
         url: `${API_URL}${ORDER_URI}`,
         data: {contact, products: productsIds},
       })
-      .then(function (reponse) {
-      
-        setConfirmOrder(reponse);
-        history.push('/order');
+      .then(function (response) {
+        const orderId = response.data.orderId;
+        history.push(getOrderRoute(orderId));
       })
       .catch(function (erreur) {
-        console.log(erreur);
-        alert('Vous devez remplir tous les champs du formulaire');
+    
       });
     }
 
