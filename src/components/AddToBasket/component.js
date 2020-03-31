@@ -5,9 +5,7 @@ import './styles.css';
 function AddToBasket({id}) {
 
   function handleClick() {
-    const products = JSON.parse(localStorage.getItem('products')) || [];
-   
-    
+    const products = JSON.parse(localStorage.getItem('products')) || []; 
       if(products.length > 0) {
           const product = products.find(p => p.id === id);
           if(product) {

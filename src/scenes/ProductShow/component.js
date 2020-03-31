@@ -6,6 +6,7 @@ import {useParams} from 'react-router-dom';
 import AddToBasket from '../../components/AddToBasket';
 import List from '../../components/List';
 import {get} from 'lodash';
+import RemoveToBasket from '../../components/RemoveToBasket';
 
 function ProductShow() {
 
@@ -29,8 +30,6 @@ function ProductShow() {
         })
     }, [])
 
-    
-
     return (<div>
         <h1>
             Page produit
@@ -40,7 +39,7 @@ function ProductShow() {
         {/*  On aurai pu écrire ça pas joliment : exemple */}
         {/* <Product name={product.name} descrition={product.descrption} /> */}
         {/*  On mount le fameux component Produit (src/components) */}
-        <AddToBasket id={id}/>
+        <AddToBasket id={id}/><RemoveToBasket id={id}/>
         <List lenses={get(product, 'lenses', [])} />
         <Product {...product} />
         
