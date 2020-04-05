@@ -5,11 +5,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import "./App.css";
 import Products from "./scenes/Products";
 import ProductShow from "./scenes/ProductShow";
 import ShoppingBasket from "./scenes/ShoppingBasket";
 import ConfirmCommand from "./scenes/ConfirmCommand";
 import { PRODUCTS_ROUTE, PRODUCT_ROUTE, ORDER_ROUTE, SHOPPING_CART, SHOPPING_BASKET_ROUTE} from "./routes";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function App() {
@@ -17,15 +20,15 @@ export default function App() {
     <Router>
       <div>
         <nav>
-          <ul>
+          <ul className="menu">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/"><FontAwesomeIcon icon={faHome} />ACCUEIL</Link>
             </li>
             <li>
-              <Link to={PRODUCTS_ROUTE}>Liste des produits</Link>
+              <Link to={PRODUCTS_ROUTE}>NOS CAMERAS</Link>
             </li>
             <li>
-              <Link to={SHOPPING_CART}>Panier de commande</Link>
+              <Link to={SHOPPING_CART}>PANIER</Link>
             </li>
           </ul>
         </nav>

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { API_URL, CAMERAS_URI } from '../../routes/api';
 import Product from '../../components/Product/component';
-import AddToBasket from '../../components/AddToBasket/component';
 import {useParams} from 'react-router-dom';
+import "./styles.css";
 
 
 
@@ -28,7 +28,7 @@ function Products() {
         })
     }, [])
 
-    return (<div>
+    return (<div className="backgroundWallpaper">
         <h1>
             Liste de produits
         </h1>
@@ -40,8 +40,7 @@ function Products() {
                 // Le composant Product attends des props (properties). Il faut lui donner. 
                 <Product key={_id} id={_id} name={name} description={description} price={price} imageUrl={imageUrl} />)
                 }
-                
-            </div>)
+    </div>)
 }
 
 // Il faut toujours exporter sa fonction ou classe pour la rendre accessible aux autres (c'est une sorte de déclaration, hey j'existe !)

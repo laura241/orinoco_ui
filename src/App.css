@@ -1,3 +1,8 @@
+@import "../node_modules/react-skeleton-css/styles/skeleton.2.0.4.css";
+@import "../node_modules/react-skeleton-css/styles/normalize.3.0.2.css";
+
+
+
 .App {
   text-align: center;
 }
@@ -22,10 +27,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
 }
 
 .App-link {
-  color: #61dafb;
+  color: black;
 }
 
 @keyframes App-logo-spin {
@@ -36,3 +42,4 @@
     transform: rotate(360deg);
   }
 }
+

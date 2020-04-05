@@ -12,7 +12,7 @@ function List({lenses}) {
 
   return(
     <div>
-      <Dropdown options={lenses} value={currentValue} placeholder="Sélectionnez votre option de lentilles" />
+      <Dropdown className="nine columns" options={lenses} value={currentValue} placeholder="Sélectionnez votre option de lentilles" />
       </div>)
 }
 

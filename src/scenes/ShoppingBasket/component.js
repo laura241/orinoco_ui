@@ -3,8 +3,7 @@ import Product from '../../components/Product/component';
 import axios from 'axios';
 import Contact from '../../components/Contact/component';
 import { API_URL, CAMERAS_URI } from '../../routes/api';
-
-
+import "./styles.css";
 
 function ShoppingBasket() {
 
@@ -48,18 +47,21 @@ function ShoppingBasket() {
     }, []);
     
     return (
-        <>
+        <div>
         {products &&
-            <div>
-                <h1>Votre commande</h1>
-                {shopping.map(({_id, name, description, price, imageUrl}) =>
-                    <Product key={_id} name={name} description={description} price={price} imageUrl={imageUrl} />)
-                }
-                <p>Prix total : {totalAmount} €</p>
+            <div className="shoppingCart u-full-width">
+            <h1>Votre commande</h1>
+                <div className="order">
+                {shopping.map(({_id, name, description, price, imageUrl, quantity}) =>
+                    <Product key={_id} name={name} description={description} price={price} imageUrl={imageUrl}/> ) }
+                </div>
+                <p className="totalAmount">Prix total : {totalAmount} €</p>
+                <div className="formContact">
                 <Contact/>
+                </div>
             </div>
         }
-        </>
+        </div>
     )      
 }
 

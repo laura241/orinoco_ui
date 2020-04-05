@@ -73,7 +73,7 @@ function Contact () {
 
         <div className='address'>
           <label htmlFor="address">Adresse</label>
-          <input type='textArea' name='address' required value={form.address} onChange={({target}) => handleOnchange('address', target.value)}/>
+          <textarea type='text' name='address' required value={form.address} onChange={({target}) => handleOnchange('address', target.value)}/>
         </div>
 
         <div className='city'>

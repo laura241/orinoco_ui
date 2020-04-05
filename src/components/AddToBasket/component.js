@@ -18,9 +18,11 @@ function AddToBasket({id}) {
           products.push({id, quantity: 1});
       }
       localStorage.setItem('products', JSON.stringify(products));
+      var buttonCart = document.getElementById("cartButton");
+    buttonCart.style.display = "inline-block";
   }
 
-  return (<button className ="button" onClick={handleClick}>Ajout au panier</button>)
+  return (<button primary={true} className ="button-primary" onClick={handleClick}>Ajout au panier</button>)
 }
 
 export default AddToBasket;

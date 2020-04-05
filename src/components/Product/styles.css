@@ -1,3 +1,43 @@
-.card {
-    border: 1px solid black;
+@import "../../../node_modules/react-skeleton-css/styles/skeleton.2.0.4.css";
+@import "../../../node_modules/react-skeleton-css/styles/normalize.3.0.2.css";
+
+
+.card{
+    margin-left: 2%;
+    background-color:whitesmoke;
+    border-width:1px;
+    border-style: groove;
+    border-color:black;
+    display: flex;
+  }
+
+
+.cardProduct {
+    margin: 3%;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+img{
+    position: relative;
+    float: right;
+    padding-right: 3%;
+}
+
+.icones{
+    margin-top: 2%;
+    margin-right: 2%;
+    color: green;
+}
+
+.check{
+    color: green;
+}
+
+.camera{
+    color: black;
+    margin-top: 2%;
 }
