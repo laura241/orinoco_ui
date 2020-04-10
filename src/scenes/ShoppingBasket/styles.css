@@ -4,4 +4,28 @@
 .shoppingCart{
     background-color: white;
     margin-right: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
 }
+
+.shoppingCart h1{
+    color: black;
+    margin-left: 3%;
+}
+
+.totalAmount{
+    font-size: 1.5em;
+}
+
+.formContact{
+    margin-left: 3%;
+}
+
+.order{
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+}
+

@@ -7,6 +7,7 @@ import AddToBasket from '../../components/AddToBasket';
 import List from '../../components/List';
 import {get} from 'lodash';
 import RemoveToBasket from '../../components/RemoveToBasket';
+import "./styles.css";
 
 function ProductShow() {
 
@@ -24,7 +25,7 @@ function ProductShow() {
         })
     }, [])
 
-    return (<div className="backgroundWallpaper">
+    return (<div className="productShow 8 columns u-full-width">
         <h1>
             {product.name}
         </h1>

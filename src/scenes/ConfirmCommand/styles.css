@@ -1,4 +1,10 @@
 
 .confirmCommand{
     background-color: white;
+    text-align: center;
+}
+
+
+strong{
+    margin-left: 2%;
 }

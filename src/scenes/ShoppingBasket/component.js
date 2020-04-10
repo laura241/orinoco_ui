@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, defaultValue } from 'react';
+import {useParams} from 'react-router-dom';
 import Product from '../../components/Product/component';
 import axios from 'axios';
 import Contact from '../../components/Contact/component';
-import { API_URL, CAMERAS_URI } from '../../routes/api';
+import { API_URL, CAMERAS_URI} from '../../routes/api';
 import "./styles.css";
+import RemoveToBasket from '../../components/RemoveToBasket';
+
+
+
 
 function ShoppingBasket() {
-
+    
+    const id = "";
+    console.log(id)
     //On initialise l'état du composant
     const [shopping, setShopping] = useState([]);
     const [totalAmount, setTotalAmount] = useState(null);
     //On définit la constante products qui va contenir les données du local storage
     const products = JSON.parse(localStorage.getItem('products'));
+
     
     useEffect(() => {
         if(products != null){
@@ -38,31 +46,44 @@ function ShoppingBasket() {
                     }
                     
                 });
-
+                //Calcul de la valeur totale du panier
                 const total = shoppingProducts.reduce((acc, value) => acc + value.total, 0);
                 setShopping(shoppingProducts);
                 setTotalAmount(total);
+                
             });
         } 
     }, []);
+
+    
     
     return (
         <div>
         {products &&
-            <div className="shoppingCart u-full-width">
-            <h1>Votre commande</h1>
+            <div className="shoppingCart">
+            <h1>Récapitulatif de votre commande</h1>
                 <div className="order">
-                {shopping.map(({_id, name, description, price, imageUrl, quantity}) =>
-                    <Product key={_id} name={name} description={description} price={price} imageUrl={imageUrl}/> ) }
+                {shopping.map(({id, name, description, price, imageUrl, quantity}) =>
+                <React.Fragment>
+                    <Product key={id} id={id} name={name} description={description} price={price} imageUrl={imageUrl} quantity={quantity} />
+                <>Quantité : {quantity}</>
+                <RemoveToBasket className="RemoveToBasket two columns" id={id}/>
+                </React.Fragment>)}
                 </div>
-                <p className="totalAmount">Prix total : {totalAmount} €</p>
                 <div className="formContact">
+                <p className="totalAmount">Prix total : {totalAmount}</p>
                 <Contact/>
                 </div>
             </div>
         }
+       
         </div>
     )      
 }
 
+
 export default ShoppingBasket;
+
+
+
+

@@ -1,8 +1,7 @@
-import React, { useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { useHistory } from "react-router-dom";
-import {useParams} from 'react-router-dom';
 import { API_URL, ORDER_URI } from '../../routes/api';
-import {getOrderIdRoute, getOrderRoute} from '../../routes/index';
+import {getOrderRoute} from '../../routes/index';
 import axios from 'axios';
 import './styles.css';
 

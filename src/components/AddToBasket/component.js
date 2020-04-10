@@ -19,10 +19,9 @@ function AddToBasket({id}) {
       }
       localStorage.setItem('products', JSON.stringify(products));
       var buttonCart = document.getElementById("cartButton");
-    buttonCart.style.display = "inline-block";
   }
 
-  return (<button primary={true} className ="button-primary" onClick={handleClick}>Ajout au panier</button>)
+  return (<button  className ="button-primary" onClick={handleClick}>Ajout au panier</button>)
 }
 
 export default AddToBasket;

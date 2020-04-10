@@ -10,8 +10,7 @@ import "./styles.css";
 
 function Products() {
 
-    const id = useParams().id;
-    // On initialiser l'état du composant, autrement appelé "state"
+    // On initialise l'état du composant, autrement appelé "state"
     const [products, setProducts] = useState([]);
 
     // On fait l'appel AJAX via axios (un module cool) vers notre API (express)
@@ -28,19 +27,20 @@ function Products() {
         })
     }, [])
 
-    return (<div className="backgroundWallpaper">
+    return (<container>
         <h1>
-            Liste de produits
+            Nos caméras
         </h1>
+        <div className="products four columns">
         {
-            // Products est un array, on doit donc itérer afin de récupérer chaque produit.
             products.map(({_id, name, description, price, imageUrl}) => 
                 // On a destructure produit (on aurait pû product.name, product.price...)
                 // Maintenant qu'on accès à chacun des produit de manière indépendante, on peut "monter" le dump component Product (src/compoments)
                 // Le composant Product attends des props (properties). Il faut lui donner. 
                 <Product key={_id} id={_id} name={name} description={description} price={price} imageUrl={imageUrl} />)
                 }
-    </div>)
+        </div>
+    </container>)
 }
 
 // Il faut toujours exporter sa fonction ou classe pour la rendre accessible aux autres (c'est une sorte de déclaration, hey j'existe !)
