@@ -60,19 +60,21 @@ function ShoppingBasket() {
     return (
         <div>
         {products &&
-            <div className="shoppingCart">
-            <h1>Récapitulatif de votre commande</h1>
-                <div className="order">
-                {shopping.map(({id, name, description, price, imageUrl, quantity}) =>
-                <React.Fragment>
-                    <Product key={id} id={id} name={name} description={description} price={price} imageUrl={imageUrl} quantity={quantity} />
-                <>Quantité : {quantity}</>
-                <RemoveToBasket className="RemoveToBasket two columns" id={id}/>
-                </React.Fragment>)}
-                </div>
-                <div className="formContact">
-                <p className="totalAmount">Prix total : {totalAmount}</p>
-                <Contact/>
+            <div className="shoppingCart twelve columns">
+                <h1>Récapitulatif de votre commande</h1>
+                    <div className="order eight columns">
+                        {shopping.map(({id, name, description, price, imageUrl, quantity}) =>
+                        <React.Fragment>
+                        <div className="four columns">
+                        <Product key={id} id={id} name={name} description={description} price={price} imageUrl={imageUrl}/>
+                        <>Quantité : {quantity}</>
+                        <RemoveToBasket id={id}/>
+                        </div>
+                        </React.Fragment>)}
+                    </div>
+                <div className="formContact four columns">
+                    <p className="totalAmount">Prix total : {totalAmount}€</p>
+                    <Contact/>
                 </div>
             </div>
         }
@@ -83,7 +85,6 @@ function ShoppingBasket() {
 
 
 export default ShoppingBasket;
-
 
 
 

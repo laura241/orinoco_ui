@@ -3,11 +3,7 @@
 
 .shoppingCart{
     background-color: white;
-    margin-right: 1%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
+    width: 100%;
 }
 
 .shoppingCart h1{
@@ -16,16 +12,24 @@
 }
 
 .totalAmount{
-    font-size: 1.5em;
+    font-size: 1.7em;
+    margin-right: 10%;
 }
 
 .formContact{
     margin-left: 3%;
+    display: flex;
+    flex-direction: column;
 }
 
 .order{
     display: flex;
-    flex-direction: column;
-    margin-left: 3%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 0;
+}
+
+.productCart{
+    margin-bottom: 3%;
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
 import { API_URL, CAMERAS_URI} from '../../routes/api';
@@ -38,13 +38,11 @@ function ConfirmCommand() {
 
               });
   
-                
-
     return (
     
-      <div className="confirmCommand five columns">
+      <div className="confirmCommand twelve columns">
         <p>Votre commande a bien été validée, nous vous remercions pour votre achat.</p>
-        <p>Montant total de votre commande : {totalAmount}</p>
+        <p>Montant total de votre commande : {totalAmount}€</p> 
         <FontAwesomeIcon icon={faShoppingCart} size="lg"/><p>Votre numéro de commande : <strong>{id}</strong><FontAwesomeIcon className="barcode" icon={faBarcode} size="lg"/></p>
       </div>
    

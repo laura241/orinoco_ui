@@ -3,6 +3,7 @@
 
 
 .card{
+    width: auto;
     background-color:whitesmoke;
     border-width:1px;
     border-style: groove;

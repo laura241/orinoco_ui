@@ -1,19 +1,25 @@
 @import "../../../node_modules/react-skeleton-css/styles/skeleton.2.0.4.css";
 @import "../../../node_modules/react-skeleton-css/styles/normalize.3.0.2.css";
 
-h1{
-    color: white;
+
+
+.container{
+    width: auto;
 }
 
-container{
-    width: auto;
+h1 .container{
+    color: white;
 }
 
 
 .products{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
+.product{
+    margin-left: 0;
+    margin-right: 2%;
+}

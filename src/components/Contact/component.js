@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { useHistory } from "react-router-dom";
 import { API_URL, ORDER_URI } from '../../routes/api';
 import {getOrderRoute} from '../../routes/index';
 import axios from 'axios';
 import './styles.css';
 
+
 function Contact () {
 
   const history = useHistory();
+
 
   const [form, setForm] = useState({
     firstName: null,
@@ -58,7 +60,8 @@ function Contact () {
   }
 
   return (
-    <div className='form'>
+
+    <div className='form u-full-width'>
       <h2>Créez votre compte</h2>
         <div className='firstname'>
           <label htmlFor="firstName">Prénom</label>

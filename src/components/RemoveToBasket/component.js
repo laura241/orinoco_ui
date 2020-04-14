@@ -1,6 +1,7 @@
 import React from 'react';
 import {remove} from 'lodash';
-import {useParams} from 'react-router-dom';
+import {ToastsContainer, ToastsStore} from 'react-toasts';
+
 
 function RemoveToBasket (props){
 
@@ -13,12 +14,14 @@ function RemoveToBasket (props){
             if(product.quantity > 1){
                 remove(products, (p) => p.id === product.id);
                 products.push({...product, quantity: product.quantity - 1});
+                ToastsStore.info("Votre produit a été retiré du panier!");
                 document.location.reload(true);
             //Si la quantité d'articles sélectionnée = 1, on supprime l'Id du local storage et on met à jour l'array products
                 } else if(product.quantity === 1){ 
                 products = products.filter(item => item !== product);
                 var buttonCart = document.getElementById("cartButton");
                 buttonCart.style.display = "none";
+                ToastsStore.info("Votre produit a été retiré du panier!");
                 document.location.reload(true);
             //Si l'Id ne figure pas dans le local storage on rend le bouton non cliquable
                 } 
@@ -30,10 +33,11 @@ function RemoveToBasket (props){
     //on initialise l'état du local storage avec l'array products mis à jour
     localStorage.setItem('products', JSON.stringify(products));
     }
-    
+
     return(
-        (<button className ="button-primary" id="cartButton" onClick={handleClick}>Enlever du panier</button>))
+        <>
+        <button className ="button-primary" id="cartButton" onClick={handleClick}>Enlever du panier></button><ToastsContainer store={ToastsStore}/>
+        </>)
 }
 
 export default RemoveToBasket;
-

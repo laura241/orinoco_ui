@@ -25,13 +25,17 @@ function ProductShow() {
         })
     }, [])
 
-    return (<div className="productShow 8 columns u-full-width">
+    return (<div className="productShow 10 columns">
         <h1>
             {product.name}
         </h1>
+        <div className="shoppingProduct">
         <AddToBasket id={id}/><RemoveToBasket id={id}/>
+        </div>
         <List lenses={get(product, 'lenses', [])} />
+        <div className="twelve columns">
         <Product {...product} />
+        </div>
         </div>)}
 
 
