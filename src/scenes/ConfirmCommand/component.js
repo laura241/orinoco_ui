@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, {useState} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
 import { API_URL, CAMERAS_URI} from '../../routes/api';

@@ -15,15 +15,15 @@ function Product({id, name, price, description, imageUrl}) {
         <Link to={getProductRoute(id)}>
             <div className="card u-full-width">
                 <img  alt="product_image " src={imageUrl}/>
-                <div className="icones">
-                <FontAwesomeIcon className="check" icon={faCheck}/><>En stock</>
-                <FontAwesomeIcon className="camera" icon={faCameraRetro} size="lg"/>
-                <FontAwesomeIcon className="camera" icon={faCamera} size="lg"/>
-                </div>
+                    <div className="icones">
+                    <FontAwesomeIcon className="check" icon={faCheck}/><>En stock</>
+                    <FontAwesomeIcon className="camera" icon={faCameraRetro} size="lg"/>
+                    <FontAwesomeIcon className="camera" icon={faCamera} size="lg"/>
+                    </div>
                 <ul className="cardProduct">
-                <li><strong>Nom:</strong>   {name}</li>
-                <li><strong>Prix:</strong>    {price}</li>
-                <li><strong>Description:</strong>    {description}</li>
+                    <li><strong>Nom:</strong>   {name}</li>
+                    <li><strong>Prix:</strong>    {price}</li>
+                    <li><strong>Description:</strong>    {description}</li>
                 </ul>
             </div>
         </Link>)

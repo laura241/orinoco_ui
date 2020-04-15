@@ -3,11 +3,11 @@
 
 
 
-.container{
+container{
     width: auto;
 }
 
-h1 .container{
+container h1{
     color: white;
 }
 

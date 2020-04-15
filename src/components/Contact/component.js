@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import { useHistory } from "react-router-dom";
 import { API_URL, ORDER_URI } from '../../routes/api';
 import {getOrderRoute} from '../../routes/index';
@@ -10,7 +10,7 @@ function Contact () {
 
   const history = useHistory();
 
-
+//Mise à jour de l'état des champs du formulaire sur null
   const [form, setForm] = useState({
     firstName: null,
     lastName: null,
@@ -19,11 +19,13 @@ function Contact () {
     email: null
   });
 
+//Fonction regex email
   function validateEmail(value) {
     const emailReg =  new RegExp("^[a-zA-Z0-9\.]+@[a-zA-Z0-9]+(\-)?[a-zA-Z0-9]+(\.)?[a-zA-Z0-9]{2,6}?\.[a-zA-Z]{2,6}$");
     return emailReg.test(value); 
   }
 
+//Retour les  
   function validateRequiredFields(values) {
     return values.map((value) => value !== null);
   }
@@ -33,7 +35,6 @@ function Contact () {
     const isEmailValid = validateEmail(form.email); //true/false
     const formValuesDefined = validateRequiredFields([form.firstName, form.lastName, form.city, form.address]).filter(Boolean);
 
-    
     if(formValuesDefined.length === Object.keys(form).length - 1 && isEmailValid){
       const storageProducts = JSON.parse(localStorage.getItem('products'));
       const productsIds = storageProducts.map((product) => product.id);

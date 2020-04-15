@@ -30,7 +30,7 @@ function ProductShow() {
             {product.name}
         </h1>
         <div className="shoppingProduct">
-        <AddToBasket id={id}/><RemoveToBasket id={id}/>
+        <AddToBasket id={id}/>
         </div>
         <List lenses={get(product, 'lenses', [])} />
         <div className="twelve columns">
