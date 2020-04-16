@@ -6,11 +6,11 @@ import axios from 'axios';
 import './styles.css';
 
 
-function Contact () {
+function Contact() {
 
   const history = useHistory();
 
-//Mise à jour de l'état des champs du formulaire sur null
+  //Mise à jour de l'état des champs du formulaire sur null
   const [form, setForm] = useState({
     firstName: null,
     lastName: null,
@@ -19,13 +19,13 @@ function Contact () {
     email: null
   });
 
-//Fonction regex email
+  //Fonction regex email
   function validateEmail(value) {
-    const emailReg =  new RegExp("^[a-zA-Z0-9\.]+@[a-zA-Z0-9]+(\-)?[a-zA-Z0-9]+(\.)?[a-zA-Z0-9]{2,6}?\.[a-zA-Z]{2,6}$");
-    return emailReg.test(value); 
+    const emailReg = new RegExp("^[a-zA-Z0-9\.]+@[a-zA-Z0-9]+(\-)?[a-zA-Z0-9]+(\.)?[a-zA-Z0-9]{2,6}?\.[a-zA-Z]{2,6}$");
+    return emailReg.test(value);
   }
 
-//Retour les  
+  //Retour les  
   function validateRequiredFields(values) {
     return values.map((value) => value !== null);
   }
@@ -35,29 +35,35 @@ function Contact () {
     const isEmailValid = validateEmail(form.email); //true/false
     const formValuesDefined = validateRequiredFields([form.firstName, form.lastName, form.city, form.address]).filter(Boolean);
 
-    if(formValuesDefined.length === Object.keys(form).length - 1 && isEmailValid){
+    if (formValuesDefined.length === Object.keys(form).length - 1 && isEmailValid) {
       const storageProducts = JSON.parse(localStorage.getItem('products'));
       const productsIds = storageProducts.map((product) => product.id);
       const contact = form;
-      
+
       axios({
-        method: 'post',
-        url: `${API_URL}${ORDER_URI}`,
-        data: {contact, products: productsIds},
-      })
-      .then(function (response) {
-        const orderId = response.data.orderId;
-        history.push(getOrderRoute(orderId));
-      })
-      .catch(function (erreur) {
-    
-      });
+          method: 'post',
+          url: `${API_URL}${ORDER_URI}`,
+          data: {
+            contact,
+            products: productsIds
+          },
+        })
+        .then(function (response) {
+          const orderId = response.data.orderId;
+          history.push(getOrderRoute(orderId));
+        })
+        .catch(function (erreur) {
+
+        });
     }
 
   }
 
   function handleOnchange(key, value) {
-    setForm({...form, [key]: value})
+    setForm({
+      ...form,
+      [key]: value
+    })
   }
 
   return (

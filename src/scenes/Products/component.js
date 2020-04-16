@@ -20,7 +20,7 @@ function Products() {
             setProducts(data);
         })
         .catch((error) => {
-            // Si le serveur renvoit une error, on console.log l'erreur. 
+            console.log(error) ;
         })
     }, [])
 
@@ -28,9 +28,9 @@ function Products() {
                     <h1>Nos caméras</h1>
                     <div className="products ten columns">
                         {products.map(({_id, name, description, price, imageUrl}) => 
-                        <div className="product five columns">
-                        <Product key={_id} id={_id} name={name} description={description} price={price} imageUrl={imageUrl}/>
-                        </div>)}
+                            <div className="product five columns">
+                                <Product key={_id} id={_id} name={name} description={description} price={price} imageUrl={imageUrl}/>
+                            </div>)}
                     </div>
             </container>)
 }
