@@ -3,9 +3,7 @@ import {remove} from 'lodash';
 import './styles.css';
 import cogoToast from 'cogo-toast';
 
-function AddToBasket({
-  id
-}) {
+function AddToBasket({id}) {
 
   function handleClick() {
     //Initialisation de products qui contiendra les données parsées du local storage
@@ -20,14 +18,12 @@ function AddToBasket({
           ...product,
           quantity: product.quantity + 1
         });
-        var buttonCart = document.getElementById("cartButton");
       } else {
         //Si product n'est pas initialisé, on pousse l'id et la quantité du produit sélectionné dans products
         products.push({
           id,
           quantity: 1
         });
-        buttonCart = document.getElementById("cartButton");
       }
       //Si products est vide, on pousse l'id et la quantité du produit sélectionné dans products
     } else {

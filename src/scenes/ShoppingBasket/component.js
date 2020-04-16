@@ -7,9 +7,6 @@ import { API_URL, CAMERAS_URI} from '../../routes/api';
 import "./styles.css";
 import RemoveToBasket from '../../components/RemoveToBasket';
 
-
-
-
 function ShoppingBasket() {
     
     const id = "";
@@ -20,7 +17,6 @@ function ShoppingBasket() {
     //On définit la constante products qui va contenir les données du local storage
     const products = JSON.parse(localStorage.getItem('products'));
 
-    
     useEffect(() => {
         if(products != null){
             const productsPromises = [];
@@ -64,13 +60,13 @@ function ShoppingBasket() {
                 <h1>Récapitulatif de votre commande</h1>
                     <div className="order eight columns">
                         {shopping.map(({id, name, description, price, imageUrl, quantity}) =>
-                        <React.Fragment>
-                        <div className="four columns">
-                        <Product key={id} id={id} name={name} description={description} price={price} imageUrl={imageUrl}/>
-                        <>Quantité : {quantity}</>
-                        <RemoveToBasket id={id}/>
-                        </div>
-                        </React.Fragment>)}
+                            <React.Fragment>
+                                <div className="four columns">
+                                    <Product key={id} id={id} name={name} description={description} price={price} imageUrl={imageUrl}/>
+                                    <>Quantité : {quantity}</>
+                                    <RemoveToBasket id={id}/>
+                                </div>
+                            </React.Fragment>)}
                     </div>
                 <div className="formContact four columns">
                     <p className="totalAmount">Prix total : {totalAmount}€</p>
@@ -78,7 +74,6 @@ function ShoppingBasket() {
                 </div>
             </div>
         }
-       
         </div>
     )      
 }

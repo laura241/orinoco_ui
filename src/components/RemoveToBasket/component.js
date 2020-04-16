@@ -1,6 +1,5 @@
 import React from 'react';
 import {remove} from 'lodash';
-import cogoToast from 'cogo-toast';
 
 function RemoveToBasket(props) {
 
