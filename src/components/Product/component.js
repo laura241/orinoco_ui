@@ -11,7 +11,7 @@ function Product({id, name, price, description, imageUrl}) {
  
     return (
         <Link to={getProductRoute(id)}>
-            <div className="card u-full-width" id={id}>
+            <div className="card u-full-width">
                 <img  alt="product_image " src={imageUrl}/>
                     <div className="icones">
                     <FontAwesomeIcon className="check" icon={faCheck}/><>En stock</>

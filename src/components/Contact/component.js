@@ -45,7 +45,7 @@ function Contact() {
           url: `${API_URL}${ORDER_URI}`,
           data: {
             contact,
-            products: productsIds
+            products: productsIds,
           },
         })
         .then(function (response) {

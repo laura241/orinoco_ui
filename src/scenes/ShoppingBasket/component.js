@@ -6,19 +6,19 @@ import Contact from '../../components/Contact/component';
 import { API_URL, CAMERAS_URI} from '../../routes/api';
 import "./styles.css";
 import RemoveToBasket from '../../components/RemoveToBasket';
+import {remove} from 'lodash';
 
 function ShoppingBasket() {
     
-    const id = "";
-    console.log(id)
     //On initialise l'état du composant
     const [shopping, setShopping] = useState([]);
     const [totalAmount, setTotalAmount] = useState(null);
     //On définit la constante products qui va contenir les données du local storage
-    const products = JSON.parse(localStorage.getItem('products'));
+    let productsRaw = JSON.parse(localStorage.getItem('products'))
+    const [products, setProducts] = useState(productsRaw);
 
     useEffect(() => {
-        if(products != null){
+        if(products !== null){
             const productsPromises = [];
             products.map(({id}) => (
                 productsPromises.push(axios.get(`${API_URL}${CAMERAS_URI}/${id}`)
@@ -49,31 +49,47 @@ function ShoppingBasket() {
                 
             });
         } 
-    }, []);
+    }, [products]);
 
-    
-    
+    function handleRemoveProduct(id) {
+        const product = productsRaw.find(p => p.id === id);
+        //Si la quantité d'articles sélectionnée est > à 1, on décrémente sa quantité et on met à jour l'array products
+        if (product) {
+            if (product.quantity > 1) {
+                product.quantity = product.quantity - 1;
+                //Si la quantité d'articles sélectionnée = 1, on supprime l'Id du local storage et on met à jour l'array products
+            } else {
+                remove(productsRaw, (p) => p.id === product.id);
+                //Si l'Id ne figure pas dans le local storage on rend le bouton non cliquable
+            }
+        }
+        //on initialise l'état du local storage avec l'array products mis à jour
+        localStorage.setItem('products', JSON.stringify(productsRaw));
+        setProducts(productsRaw);
+    }
+
     return (
         <div>
-        {products &&
-            <div className="shoppingCart twelve columns">
-                <h1>Récapitulatif de votre commande</h1>
-                    <div className="order eight columns">
-                        {shopping.map(({id, name, description, price, imageUrl, quantity}) =>
-                            <React.Fragment>
-                                <div className="four columns">
-                                    <Product key={id} id={id} name={name} description={description} price={price} imageUrl={imageUrl}/>
-                                    <>Quantité : {quantity}</>
-                                    <RemoveToBasket id={id}/>
-                                </div>
-                            </React.Fragment>)}
+            {products &&
+                <div className="shoppingCart twelve columns">
+                    <h1>Récapitulatif de votre commande</h1>
+                        <div className="order eight columns">
+                            {shopping.map(({id, name, description, price, imageUrl, quantity}) =>
+                                <React.Fragment>
+                                    <div className="four columns">
+                                        <Product key={id} id={id} name={name} description={description} price={price} imageUrl={imageUrl}/>
+                                        <span>Quantité : {quantity}</span>
+                                        <RemoveToBasket id={id} handleClick={handleRemoveProduct}/>
+                                    </div>
+                                </React.Fragment>)
+                            }
+                        </div>
+                    <div className="formContact four columns">
+                        <p className="totalAmount">Prix total : {totalAmount}€</p>
+                        <Contact/>
                     </div>
-                <div className="formContact four columns">
-                    <p className="totalAmount">Prix total : {totalAmount}€</p>
-                    <Contact/>
                 </div>
-            </div>
-        }
+            }
         </div>
     )      
 }
