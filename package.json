@@ -26,7 +26,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./"
+    "lint": "eslint ./",
+    "prettify":
+    "prettier --single-quote --trailing-comma all --write '{src,__{tests,mocks}__}/**/*.js'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,6 +47,7 @@
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.19.0"
+    "eslint-plugin-react": "^7.19.0",
+    "prettier": "^2.0.4"
   }
 }

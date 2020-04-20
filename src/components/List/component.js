@@ -1,16 +1,21 @@
 import React from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import {first} from 'lodash';
+import { first } from 'lodash';
 
-function List({lenses}) {
-
+function List({ lenses }) {
   const currentValue = first(lenses);
 
-  return(
+  return (
     <div>
-      <Dropdown className="seven columns" options={lenses} value={currentValue} placeholder="Sélectionnez votre option de lentilles" />
-      </div>)
+      <Dropdown
+        className="seven columns"
+        options={lenses}
+        value={currentValue}
+        placeholder="Sélectionnez votre option de lentilles"
+      />
+    </div>
+  );
 }
 
 export default List;

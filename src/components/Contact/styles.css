@@ -12,3 +12,8 @@
     border-radius: 10px;
     width: 100%;
   }
+
+  .submit{
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
