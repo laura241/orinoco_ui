@@ -1,7 +1,16 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { API_URL, ORDER_URI } from '../../routes/api';
-import { getOrderRoute } from '../../routes/index';
+import React, {
+  useState
+} from 'react';
+import {
+  useHistory
+} from 'react-router-dom';
+import {
+  API_URL,
+  ORDER_URI
+} from '../../routes/api';
+import {
+  getOrderRoute
+} from '../../routes/index';
 import axios from 'axios';
 import './styles.css';
 
@@ -25,7 +34,7 @@ function Contact() {
     return emailReg.test(value);
   }
 
-  //Retour les
+  //Analyse si les champs du formulaire sont remplis ou non
   function validateRequiredFields(values) {
     return values.map((value) => value !== null);
   }
@@ -47,14 +56,16 @@ function Contact() {
       const productsIds = storageProducts.map((product) => product.id);
       const contact = form;
 
+      //Envoi de contact et products au back-end
       axios({
-        method: 'post',
-        url: `${API_URL}${ORDER_URI}`,
-        data: {
-          contact,
-          products: productsIds,
-        },
-      })
+          method: 'post',
+          url: `${API_URL}${ORDER_URI}`,
+          data: {
+            contact,
+            products: productsIds,
+          },
+        })
+        //Réponse du back : retourne orderId et envoi vers ConfirmCommand
         .then(function (response) {
           const orderId = response.data.orderId;
           history.push(getOrderRoute(orderId));
@@ -70,68 +81,103 @@ function Contact() {
     });
   }
 
-  return (
-    <div className="form u-full-width">
-      <h2>Créez votre compte</h2>
-      <div className="firstname">
-        <label htmlFor="firstName">Prénom</label>
-        <input
-          type="text"
-          name="firstName"
-          required
-          value={form.firstName}
-          onChange={({ target }) => handleOnchange('firstName', target.value)}
-        />
-      </div>
+  return ( <
+    div className = "form u-full-width" >
+    <
+    h2 > Créez votre compte < /h2> <
+    div className = "firstname" >
+    <
+    label htmlFor = "firstName" > Prénom < /label> <
+    input type = "text"
+    name = "firstName"
+    required value = {
+      form.firstName
+    }
+    onChange = {
+      ({
+        target
+      }) => handleOnchange('firstName', target.value)
+    }
+    /> <
+    /div>
 
-      <div className="lastName">
-        <label htmlFor="lastName">Nom</label>
-        <input
-          type="text"
-          name="lastName"
-          required
-          value={form.lastName}
-          onChange={({ target }) => handleOnchange('lastName', target.value)}
-        />
-      </div>
+    <
+    div className = "lastName" >
+    <
+    label htmlFor = "lastName" > Nom < /label> <
+    input type = "text"
+    name = "lastName"
+    required value = {
+      form.lastName
+    }
+    onChange = {
+      ({
+        target
+      }) => handleOnchange('lastName', target.value)
+    }
+    /> <
+    /div>
 
-      <div className="address">
-        <label htmlFor="address">Adresse</label>
-        <textarea
-          type="text"
-          name="address"
-          required
-          value={form.address}
-          onChange={({ target }) => handleOnchange('address', target.value)}
-        />
-      </div>
+    <
+    div className = "address" >
+    <
+    label htmlFor = "address" > Adresse < /label> <
+    textarea type = "text"
+    name = "address"
+    required value = {
+      form.address
+    }
+    onChange = {
+      ({
+        target
+      }) => handleOnchange('address', target.value)
+    }
+    /> <
+    /div>
 
-      <div className="city">
-        <label htmlFor="city">Ville</label>
-        <input
-          type="text"
-          name="city"
-          required
-          value={form.city}
-          onChange={({ target }) => handleOnchange('city', target.value)}
-        />
-      </div>
+    <
+    div className = "city" >
+    <
+    label htmlFor = "city" > Ville < /label> <
+    input type = "text"
+    name = "city"
+    required value = {
+      form.city
+    }
+    onChange = {
+      ({
+        target
+      }) => handleOnchange('city', target.value)
+    }
+    /> <
+    /div>
 
-      <div className="email">
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          required
-          value={form.email}
-          onChange={({ target }) => handleOnchange('email', target.value)}
-        />
-      </div>
+    <
+    div className = "email" >
+    <
+    label htmlFor = "email" > Email < /label> <
+    input type = "email"
+    name = "email"
+    required value = {
+      form.email
+    }
+    onChange = {
+      ({
+        target
+      }) => handleOnchange('email', target.value)
+    }
+    /> <
+    /div>
 
-      <div className="submit" type="submit">
-        <button onClick={handleSubmit}>Envoyer</button>
-      </div>
-    </div>
+    <
+    div className = "submit"
+    type = "submit" >
+    <
+    button onClick = {
+      handleSubmit
+    } > Envoyer < /button> <
+    /div> <
+    /div>
   );
 }
 

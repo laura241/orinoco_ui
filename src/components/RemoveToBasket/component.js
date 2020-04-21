@@ -1,15 +1,18 @@
 import React from 'react';
 
-
-function RemoveToBasket({ handleClick, id }) {
-  return (
-    <button
-      className="button-primary"
-      id="cartButton"
-      onClick={() => handleClick(id)}
-    >
-      Enlever du panier
-    </button>
+//Retourne le bouton supprimer du panier
+function RemoveToBasket({
+  handleClick,
+  id
+}) {
+  return ( <
+    button className = "button-primary"
+    id = "cartButton"
+    onClick = {
+      () => handleClick(id)
+    } >
+    Enlever du panier <
+    /button>
   );
 }
 
