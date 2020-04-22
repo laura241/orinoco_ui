@@ -1,3 +1,3 @@
-import Product from './component';
+import Product from "./component";
 
 export default Product;

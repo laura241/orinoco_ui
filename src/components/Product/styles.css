@@ -1,44 +1,42 @@
 @import "../../../node_modules/react-skeleton-css/styles/skeleton.2.0.4.css";
 @import "../../../node_modules/react-skeleton-css/styles/normalize.3.0.2.css";
 
-
-.card{
-    width: auto;
-    background-color:whitesmoke;
-    border-width:1px;
-    border-style: groove;
-    border-color:black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
+.card {
+  width: auto;
+  background-color: whitesmoke;
+  border-width: 1px;
+  border-style: groove;
+  border-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .cardProduct {
-    margin: 2%;
-    color: black;
+  margin: 2%;
+  color: black;
 }
 
-img{
-    position: relative;
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 4%;
+img {
+  position: relative;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 4%;
 }
 
-.icones{
-    margin-top: 2%;
-    margin-left: 50%;
-    color: green;
+.icones {
+  margin-top: 2%;
+  margin-left: 50%;
+  color: green;
 }
 
-.check{
-    color: green;
+.check {
+  color: green;
 }
 
-.camera{
-    display: inline-block;
-    color: black;
-    margin-top: 2%;
-    margin-left: 2%;
+.camera {
+  display: inline-block;
+  color: black;
+  margin-top: 2%;
+  margin-left: 2%;
 }

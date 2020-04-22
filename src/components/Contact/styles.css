@@ -1,19 +1,13 @@
+input:valid {
+  border: 1px solid black;
+}
 
-  
-  input:valid {
-    border: 1px solid black;
-  };
+.form {
+  background-color: white;
+  width: 100%;
+}
 
-  .form{
-    background-color: white;
-    border-width:1px;
-    border-style: groove;
-    border-color:black;
-    border-radius: 10px;
-    width: 100%;
-  }
-
-  .submit{
-    padding-top: 2%;
-    padding-bottom: 2%;
-  }
+.submit {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}

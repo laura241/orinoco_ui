@@ -1,3 +1,3 @@
-import ProductShow from './component';
+import ProductShow from "./component";
 
 export default ProductShow;

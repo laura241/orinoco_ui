@@ -1,12 +1,12 @@
-import React from 'react';
-import { remove } from 'lodash';
-import './styles.css';
-import cogoToast from 'cogo-toast';
+import React from "react";
+import { remove } from "lodash";
+import "./styles.css";
+import cogoToast from "cogo-toast";
 
 function AddToBasket({ id }) {
   function handleClick() {
     //Initialisation de products qui contiendra les données parsées du local storage
-    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const products = JSON.parse(localStorage.getItem("products")) || [];
     if (products.length > 0) {
       //Si products n'est pas vide : initialisation de product qui contiendra l'ID et la quantité du produit sélectionné par l'utilisateur
       const product = products.find((p) => p.id === id);
@@ -32,9 +32,9 @@ function AddToBasket({ id }) {
       });
     }
     // On initialise le local storage à la fin des opérations avec products
-    localStorage.setItem('products', JSON.stringify(products));
+    localStorage.setItem("products", JSON.stringify(products));
     // Toast d'ajout au panier
-    cogoToast.success('Votre produit a bien été ajouté au panier!');
+    cogoToast.success("Votre produit a bien été ajouté au panier!");
   }
 
   return (

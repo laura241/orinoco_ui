@@ -1,15 +1,13 @@
-
-.productShow{
-    background-color: white;
-    margin-left: 0;
+.productShow {
+  background-color: white;
+  margin-left: 0;
 }
 
-.productShow h1{
-    color: black;
-    margin-left: 2%;
+.productShow h1 {
+  color: black;
+  margin-left: 2%;
 }
 
-
-.product{
-    margin-top: 2%;
+.product {
+  margin-top: 2%;
 }

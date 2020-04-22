@@ -1,3 +1,3 @@
-import AddToBasket from './component';
+import AddToBasket from "./component";
 
 export default AddToBasket;

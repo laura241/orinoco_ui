@@ -49,6 +49,7 @@ function ShoppingBasket() {
     }
   }, [products]);
 
+  //
   function handleRemoveProduct(id) {
     const product = productsRaw.find((p) => p.id === id);
     //Si la quantité d'articles sélectionnée est > à 1, on décrémente sa quantité et on met à jour l'array products

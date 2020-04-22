@@ -1,3 +1,3 @@
-import RemoveToBasket from './component';
+import RemoveToBasket from "./component";
 
 export default RemoveToBasket;

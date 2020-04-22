@@ -1,3 +1,3 @@
-import ShoppingBasket from './component';
+import ShoppingBasket from "./component";
 
 export default ShoppingBasket;

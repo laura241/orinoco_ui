@@ -1,19 +1,19 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import './App.css';
-import Products from './scenes/Products';
-import ProductShow from './scenes/ProductShow';
-import ShoppingBasket from './scenes/ShoppingBasket';
-import ConfirmCommand from './scenes/ConfirmCommand';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "./App.css";
+import Products from "./scenes/Products";
+import ProductShow from "./scenes/ProductShow";
+import ShoppingBasket from "./scenes/ShoppingBasket";
+import ConfirmCommand from "./scenes/ConfirmCommand";
 import {
   PRODUCTS_ROUTE,
   PRODUCT_ROUTE,
   ORDER_ROUTE,
   SHOPPING_CART,
   SHOPPING_BASKET_ROUTE,
-} from './routes';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+} from "./routes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 export default function App() {
   return (

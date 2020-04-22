@@ -1,14 +1,14 @@
-import React from 'react';
-import { string, number } from 'prop-types';
-import { Link } from 'react-router-dom';
-import { getProductRoute } from '../../routes';
-import './styles.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from "react";
+import { string, number } from "prop-types";
+import { Link } from "react-router-dom";
+import { getProductRoute } from "../../routes";
+import "./styles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheck,
   faCameraRetro,
   faCamera,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
 
 function Product({ id, name, price, description, imageUrl }) {
   return (
@@ -43,7 +43,6 @@ Product.propTypes = {
   price: number,
   description: string,
   imageUrl: string,
-  lenses: [string],
 };
 
 Product.defaultProps = {

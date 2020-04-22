@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { API_URL, CAMERAS_URI } from '../../routes/api';
-import Product from '../../components/Product/component';
-import './styles.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { API_URL, CAMERAS_URI } from "../../routes/api";
+import Product from "../../components/Product/component";
+import "./styles.css";
 
 function Products() {
   //Initialisation de l'état du composant
