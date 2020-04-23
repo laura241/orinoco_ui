@@ -8,7 +8,7 @@ For the back end server, follow this link : https://github.com/laura241/orinoco_
 * CSS 3 with flexbox
 * Javascript
 * Create React App (https://github.com/facebook/create-react-app)
-* Grid system of Skeleton CSS (http://getskeleton.com/)
+* Grid system of React Skeleton CSS (https://www.npmjs.com/package/react-skeleton-css)
 
 
 ### Prerequisites ###
