@@ -1,12 +1,14 @@
-Orinoco Cameras - MVP
+## Orinoco Cameras - MVP
 
-Projet réalisé dans le cadre de la formation DWJ d'OpenClassrooms. 
+This is the front end for Orinoco Cameras application. 
+For the back end server, follow this link : https://github.com/laura241/orinoco_api.git.
 
 ## Tech
-CSS 3 with flexbox
-Javascript
-Create React App (https://github.com/facebook/create-react-app)
-Grid system of Skeleton CSS (http://getskeleton.com/)
+
+* CSS 3 with flexbox
+* Javascript
+* Create React App (https://github.com/facebook/create-react-app)
+* Grid system of Skeleton CSS (http://getskeleton.com/)
 
 
 ### Prerequisites ###
