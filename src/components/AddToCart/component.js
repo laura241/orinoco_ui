@@ -3,7 +3,7 @@ import { remove } from "lodash";
 import "./styles.css";
 import cogoToast from "cogo-toast";
 
-function AddToBasket({ id }) {
+function AddToCart({ id }) {
   function handleClick() {
     //Initialisation de products qui contiendra les données parsées du local storage
     const products = JSON.parse(localStorage.getItem("products")) || [];
@@ -46,4 +46,4 @@ function AddToBasket({ id }) {
   );
 }
 
-export default AddToBasket;
+export default AddToCart;

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { API_URL, CAMERAS_URI } from '../../routes/api';
 import Product from '../../components/Product/component';
 import { useParams } from 'react-router-dom';
-import AddToBasket from '../../components/AddToBasket';
+import AddToCart from '../../components/AddToCart';
 import List from '../../components/List';
 import { get } from 'lodash';
 import './styles.css';
@@ -27,7 +27,7 @@ function ProductShow() {
     <div className="productShow 10 columns">
       <h1>{product.name}</h1>
       <div className="shoppingProduct">
-        <AddToBasket id={id} />
+        <AddToCart id={id} />
       </div>
       <List lenses={get(product, 'lenses', [])} />
       <div className="twelve columns">

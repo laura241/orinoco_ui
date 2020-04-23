@@ -1,7 +1,7 @@
 import React from "react";
 
 //Retourne le bouton supprimer du panier
-function RemoveToBasket({ handleClick, id }) {
+function RemoveFromCart({ handleClick, id }) {
   return (
     <button
       className="button-primary"
@@ -13,4 +13,4 @@ function RemoveToBasket({ handleClick, id }) {
   );
 }
 
-export default RemoveToBasket;
+export default RemoveFromCart;

@@ -1,11 +1,11 @@
 @import "../../../node_modules/react-skeleton-css/styles/skeleton.2.0.4.css";
 @import "../../../node_modules/react-skeleton-css/styles/normalize.3.0.2.css";
 
-container {
+#container {
   width: auto;
 }
 
-container h1 {
+#container h1 {
   color: white;
 }
 

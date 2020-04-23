@@ -22,13 +22,12 @@ function Products() {
   }, []);
 
   return (
-    <container className="twelve columns">
+    <div className="twelve columns" id="container">
       <h1>Nos caméras</h1>
       <div className="products ten columns">
         {products.map(({ _id, name, description, price, imageUrl }) => (
-          <div className="product five columns">
+          <div key={_id} className="product five columns">
             <Product
-              key={_id}
               id={_id}
               name={name}
               description={description}
@@ -38,7 +37,7 @@ function Products() {
           </div>
         ))}
       </div>
-    </container>
+    </div>
   );
 }
 export default Products;

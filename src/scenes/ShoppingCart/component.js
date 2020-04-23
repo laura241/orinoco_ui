@@ -4,10 +4,10 @@ import axios from 'axios';
 import Contact from '../../components/Contact/component';
 import { API_URL, CAMERAS_URI } from '../../routes/api';
 import './styles.css';
-import RemoveToBasket from '../../components/RemoveToBasket';
+import RemoveFromCart from '../../components/RemoveFromCart';
 import { remove } from 'lodash';
 
-function ShoppingBasket() {
+function shoppingCart() {
   //On initialise l'état du composant
   const [shopping, setShopping] = useState([]);
   const [totalAmount, setTotalAmount] = useState(null);
@@ -86,7 +86,7 @@ function ShoppingBasket() {
                       imageUrl={imageUrl}
                     />
                     <span>Quantité : {quantity}</span>
-                    <RemoveToBasket id={id} handleClick={handleRemoveProduct} />
+                    <RemoveFromCart id={id} handleClick={handleRemoveProduct} />
                   </div>
                 </React.Fragment>
               ),
@@ -102,4 +102,4 @@ function ShoppingBasket() {
   );
 }
 
-export default ShoppingBasket;
+export default shoppingCart;
