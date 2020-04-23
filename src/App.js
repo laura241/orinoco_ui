@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import Products from "./scenes/Products";
 import ProductShow from "./scenes/ProductShow";
-import ShoppingBasket from "./scenes/ShoppingBasket";
+import ShoppingCart from "./scenes/ShoppingCart";
 import ConfirmCommand from "./scenes/ConfirmCommand";
 import {
   PRODUCTS_ROUTE,
@@ -46,13 +46,13 @@ export default function App() {
             <ProductShow />
           </Route>
           <Route path={SHOPPING_CART}>
-            <ShoppingBasket />
+            <ShoppingCart />
           </Route>
           <Route path={ORDER_ROUTE}>
             <ConfirmCommand />
           </Route>
           <Route path={SHOPPING_BASKET_ROUTE}>
-            <ShoppingBasket />
+            <ShoppingCart />
           </Route>
           {/* Add other route and components juste like the Products */}
         </Switch>

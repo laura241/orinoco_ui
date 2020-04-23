@@ -7,7 +7,7 @@ import './styles.css';
 import RemoveFromCart from '../../components/RemoveFromCart';
 import { remove } from 'lodash';
 
-function shoppingCart() {
+function ShoppingCart() {
   //On initialise l'état du composant
   const [shopping, setShopping] = useState([]);
   const [totalAmount, setTotalAmount] = useState(null);
@@ -102,4 +102,4 @@ function shoppingCart() {
   );
 }
 
-export default shoppingCart;
+export default ShoppingCart;
